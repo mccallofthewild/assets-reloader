@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+    <style>
+        p{font-size:1.5em;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="jumbotron">
+                    <h2>Reload your CSS and/or JS without reloading your entire page.</h2>
+                    <h2>Key Combinations</h2>
+                    <h4>
+                    <ul>
+                        <br>
+                        <li> Reload CSS only = ('.' + 'c' ) </li>
+                        <br>
+                        <li> Reload Scripts only = ( '.' + 's' ) </li>
+                        <br>
+                        <li> Reload JS & CSS ( '.' + 'a' ) </li>
+                        <br>
+                        <li> Reload page ( '.' + 'r' ) </li>
+                    </ul>
+                    </h4>
+                </div>
+                  <div class="panel panel-info">
+                    <div class="panel-heading">
+                <p>Copy & paste this to the <code>&lt;head&gt;</code> section of your HTML:<br><small>(will load automatically)</small></p>
+                    </div>
+                 <div class="panel-body">
+
+                <input type="text" value="<script src='https://mccallofthewild.github.io/assets-reloader/reload.min.js' instuctions='reload CSS = ( . + c ); reload JavaScript = ( . + s ); reload JS &amp; CSS = ( . + a ); reload entire page = ( . + r );'></script>" class="form-control">
+            </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                <p> Or click & drag this to your bookmarks bar to use as a bookmarklet : <small>(must click bookmark to run)</small></p>
+                    </div>
+                <div class="panel-body">
+                <p>
+                <a href="javascript:void%20function(){window.onload=function(){function%20e(){for(var%20e=%22%3Freload=%22+(new%20Date).getTime(),n=document.styleSheets,t=0;t%3Cn.length;t++){var%20o=n[t];if(-1==o.href.indexOf(%22bootstrap%22)){var%20d=document.createElement(%22link%22);d.href=o.href.replace(/\%3F.*|$/,e),d.rel=%22stylesheet%22,document.getElementsByTagName(%22head%22)[0].appendChild(d),document.getElementsByTagName(%22head%22)[0].removeChild(o.ownerNode)}}}function%20n(){for(var%20e=%22%3Freload=%22+(new%20Date).getTime(),n=document.getElementsByTagName(%22script%22)[0],t=0;t%3Cn.length;t++){var%20o=n[t],d=o.href;if(-1==d.toLowerCase().indexOf(%22jquery%22)%26%26d){var%20i=document.createElement(%22link%22);i.href=o.href.replace(/\%3F.*|$/,e),i.rel=%22stylesheet%22,document.getElementsByTagName(%22head%22)[0].appendChild(i),document.getElementsByTagName(%22head%22)[0].removeChild(o.ownerNode)}}}function%20t(){o.push(event.keyCode||event.which),o.shift(),o.indexOf(46)+1%26%26o.indexOf(99)+1%3F(setTimeout(e(),500),o=[0,0]):o.indexOf(46)+1%26%26o.indexOf(115)+1%3F(setTimeout(n(),500),o=[0,0]):o.indexOf(46)+1%26%26o.indexOf(97)+1%3F(setTimeout(function(){n(),e()},500),o=[0,0]):o.indexOf(46)+1%26%26o.indexOf(114)+1%26%26(o=[0,0],location.reload()),console.log(event.keyCode||event.which)}var%20o=[0,0];window.onload=window.addEventListener(%22keypress%22,t)}}();" class="btn btn-primary">Asset Reloader</a>
+                </p>
+                    </div>
+                </div>
+              
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
