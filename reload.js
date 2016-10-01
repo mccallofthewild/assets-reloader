@@ -1,5 +1,4 @@
 window.onload = function (){
-var keyArr = [0, 0];
 
 function reloadStylesheets() {
 
@@ -7,7 +6,7 @@ function reloadStylesheets() {
     var styleSheets = document.styleSheets;
     for(var i = 0; i < styleSheets.length; i++){
             var oldstyle = styleSheets[i];
-            if(oldstyle.href.indexOf('bootstrap') == -1){ 
+            if(oldstyle.href.indexOf('https') == -1){ 
                 var newstyle = document.createElement('link');              
                 newstyle.href = oldstyle.href.replace(/\?.*|$/, queryString);
                 newstyle.rel = "stylesheet";
@@ -18,19 +17,18 @@ function reloadStylesheets() {
 }
 
 
-function reloadScripts() {
-    
+function reloadScripts(){
+
     var queryString = '?reload=' + new Date().getTime();
-    var scripts = document.getElementsByTagName('script')[0]
+    var scripts = document.getElementsByTagName('script');
     for(var i = 0; i < scripts.length; i++){
             var oldscript = scripts[i];
-            var oldhref = oldscript.href
-            if(oldhref.toLowerCase().indexOf('jquery') == -1 && oldhref){ 
-                var newstyle = document.createElement('link');              
-                newstyle.href = oldscript.href.replace(/\?.*|$/, queryString);
-                newstyle.rel = "stylesheet";
-                document.getElementsByTagName('head')[0].appendChild(newstyle);
-                document.getElementsByTagName('head')[0].removeChild(oldscript.ownerNode);
+            var oldsrc = oldscript.src;
+            if(oldsrc.indexOf('https') == -1){ 
+                var newscript = document.createElement('script');              
+                newscript.src = oldscript.src.replace(/\?.*|$/, queryString);
+                document.getElementsByTagName('head')[0].appendChild(newscript);
+                document.getElementsByTagName('head')[0].removeChild(oldscript);
         }
     }
 }
@@ -52,15 +50,15 @@ function reloadCaller(){
             }else if(keyArr.indexOf(46)+1 && keyArr.indexOf(114)+1){
                 keyArr = [0, 0];
                 location.reload();
-            }
+            }else{}
             console.log(event.keyCode || event.which)
 
 }
+    var keyArr = [0, 0];
 
 window.onload = window.addEventListener("keypress", reloadCaller );
 
 
 
 }
-
-/* Reload CSS only = ( . + c ); Reload Scripts only = ( . + s ); Reload JS & CSS ( . + a ); Reload page ( . + r )
+/* Reload CSS only = ( . + c ); Reload Scripts only = ( . + s ); Reload JS & CSS ( . + a ); Reload page ( . + r ) */
